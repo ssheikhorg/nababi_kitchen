@@ -87,9 +87,9 @@ WSGI_APPLICATION = "restaurant.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wagtaildb',
-        'USER': 'wagtailuser',
-        'PASSWORD': 'wagtailpassword',
+        'NAME': 'nababikitchendb',
+        'USER': 'admin',
+        'PASSWORD': 'N@babiKitchen',
         'HOST': 'localhost',
         'PORT': '5432',
     }
