@@ -58,7 +58,7 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
-ROOT_URLCONF = "restaurant.urls"
+ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "restaurant.wsgi.application"
+WSGI_APPLICATION = "project.wsgi.application"
 
 
 # Database
