@@ -16,8 +16,8 @@ stop:
 run:
 	python manage.py runserver
 
-mgn:
+mn:
 	python manage.py makemigrations
 
-mgt:
+mt:
 	python manage.py migrate
