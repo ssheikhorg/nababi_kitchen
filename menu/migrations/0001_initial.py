@@ -10,13 +10,17 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailcore', '0094_alter_page_locale'),
+        ('wagtailimages', '0026_delete_uploadedimage'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='HomePage',
+            name='MenuPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
+                ('price', models.DecimalField(decimal_places=2, default=0, max_digits=6)),
+                ('description', models.TextField(blank=True)),
+                ('image', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
             ],
             options={
                 'abstract': False,

@@ -13,11 +13,14 @@ db:
 stop:
 	docker stop nababi-db
 
-run:
+r:
 	python manage.py runserver
 
-mn:
+n:
 	python manage.py makemigrations
 
-mt:
+t:
 	python manage.py migrate
+
+su:
+	python manage.py createsuperuser
