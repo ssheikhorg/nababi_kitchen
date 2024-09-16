@@ -19,7 +19,7 @@ local_settings.py
 db.sqlite3
 
 # Wagtail-specific
-media/
+staticfiles/media/
 static/
 wagtail/
 wagtail-app/

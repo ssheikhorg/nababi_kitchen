@@ -1,5 +1,5 @@
 # Django project
-/media/
+/staticfiles/media/
 /static/
 *.sqlite3
 
