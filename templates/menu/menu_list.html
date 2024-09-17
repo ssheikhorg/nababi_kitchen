@@ -1,5 +1,47 @@
-<h1>Menu List</h1>
+<div class="container-fluid menu bg-light py-6 my-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small
+                class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our
+                Menu</small>
+            <h1 class="display-5 mb-5">Most Popular Food in the World</h1>
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
+                {% for category in categories %}
+                    <li class="nav-item p-2">
+                        <a class="d-flex py-2 mx-2 border border-primary bg-white rounded-pill {% if forloop.first %}active{% endif %}"
+                           data-bs-toggle="pill"
+                           href="#tab-{{ forloop.counter }}">
+                            <span class="text-dark" style="width: 150px;">{{ category.name }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
 
-{% for menu in menu_list %}
-    <h2>{{ menu }}</h2>
-{% endfor %}
+            <!-- Tab Content -->
+            <div class="tab-content">
+                {% for category in categories %}
+                    <div id="tab-{{ forloop.counter }}" class="tab-pane fade show p-0 {% if forloop.first %}active{% endif %}">
+                        <div class="row g-4">
+                            {% for item in category.menu_item.all %}
+                                <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.{{ forloop.counter }}s">
+                                    <div class="menu-item d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded-circle" src="{{ item.image.url }}" alt="{{ item.name }}">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
+                                                <h4>{{ item.name }}</h4>
+                                                <h4 class="text-primary">${{ item.price }}</h4>
+                                            </div>
+                                            <p class="mb-0">{{ item.description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

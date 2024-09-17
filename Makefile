@@ -24,3 +24,6 @@ t:
 
 su:
 	python manage.py createsuperuser
+
+install:
+	pip install -U -r requirements.txt
