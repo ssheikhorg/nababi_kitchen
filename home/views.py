@@ -1,7 +1,9 @@
 # templateview
 from django.views.generic import TemplateView
 
-from .models import MenuCategory, FooterSettings, SpecialFacility, ContactInfo, SocialGalleryImage
+from .models import (
+    MenuCategory, FooterSettings, SpecialFacility, ContactInfo, SocialGalleryImage, MenuItem
+)
 
 
 class HomeView(TemplateView):
@@ -22,12 +24,24 @@ class HomeView(TemplateView):
         return context
 
 
+class MenuView(TemplateView):
+    template_name = 'home/menu.html'
+
+    def get_context_data(self, **kwargs):
+        categories = MenuCategory.objects.all()
+        menu_items = MenuItem.objects.all()
+        context = super().get_context_data(**kwargs)
+        context['categories'] = categories
+        context['menu_items'] = menu_items
+        return context
+
+
 class AboutUsView(TemplateView):
-    template_name = 'home/about.html'
+    template_name = 'home/about_page.html'
 
 
 class ContactView(TemplateView):
-    template_name = 'home/contact.html'
+    template_name = 'home/contact_page.html'
 
     def get_context_data(self, **kwargs):
         contact_info = ContactInfo.objects.first()
