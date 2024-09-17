@@ -25,5 +25,8 @@ t:
 su:
 	python manage.py createsuperuser
 
-install:
+i:
 	pip install -U -r requirements.txt
+
+collect:
+	python manage.py collectstatic

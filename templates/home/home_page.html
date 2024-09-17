@@ -1,50 +1,76 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block body_class %}Nababi Kitchen{% endblock %}
-
-{% block extra_css %}
-<!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap"
-    rel="stylesheet">
-
-<!-- Icon Font Stylesheet -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
-<link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
-<link href="{% static 'lib/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-<!-- Template Stylesheet -->
-<link href="{% static 'css/style.css' %}" rel="stylesheet">
-{% endblock extra_css %}
-
-{% block extra_js %}
-<!-- JavaScript Libraries -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{% static 'lib/wow/wow.min.js' %}"></script>
-<script src="{% static 'lib/easing/easing.min.js' %}"></script>
-<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
-<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
-<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
-<!-- Template Javascript -->
-<script src="{% static 'js/main.js' %}"></script>
-{% endblock extra_js %}
 
 {% block content %}
+<!-- Spinner Start -->
+<div id="spinner"
+    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Spinner End -->
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+<!-- Navbar start -->
+<div class="container-fluid nav-bar">
+    <div class="container">
+        <nav class="navbar navbar-light navbar-expand-lg py-4">
+            <a href="home_page.html" class="navbar-brand">
+                <h1 class="text-primary fw-bold mb-0">Cater<span class="text-dark">Serv</span></h1>
+            </a>
+            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="home_page.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book Now</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+<!-- Hero Start -->
+<div class="container-fluid bg-light py-6 my-6 mt-0">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-7 col-md-12">
+                <small
+                    class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-4 animated bounceInDown">Welcome
+                    to our restaurant</small>
+                <h1 class="display-1 mb-4 animated bounceInDown">Book Foods From <span class="text-primary">Nababi Kitchen</span> For Your Fine Dining</h1>
+                <a href=""
+                    class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 me-4 animated bounceInLeft">Book
+                    Now</a>
+                <a href="" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 animated bounceInLeft">Know
+                    More</a>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <img src="{% static 'img/hero.png' %}" class="img-fluid rounded animated zoomIn" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+
+
+<!-- Menu Include Here -->
+{% include 'home/menu_list.html' %}
+<!-- Menu End -->
+
+<!-- Book-Us Include Here -->
+{% include 'home/book_us.html' %}
+<!-- Book-Us End -->
+
+<!-- Book-Us Include Here -->
+{% include 'home/footer.html' %}
+<!-- Book-Us End -->
+
 
 {% endblock content %}
