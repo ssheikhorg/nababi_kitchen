@@ -11,7 +11,8 @@ stop:
 	docker stop nababi_kitchen_container
 
 r:
-	python manage.py runserver
+	uvicorn restaurant.asgi:application --host 0.0.0.0 --port 8000
+#python manage.py runserver
 
 n:
 	python manage.py makemigrations
