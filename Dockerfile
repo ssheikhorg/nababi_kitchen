@@ -18,7 +18,7 @@ COPY . /app/
 RUN python manage.py collectstatic --noinput
 
 # Step 6: Expose the port Django will run on
-EXPOSE 8000
+EXPOSE 80
 
 # Step 7: Run migrations and start the Django development server
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:80"]
