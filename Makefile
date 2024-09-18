@@ -30,3 +30,9 @@ i:
 
 collect:
 	python manage.py collectstatic
+
+deploy:
+	zappa deploy production
+
+update:
+	zappa update production

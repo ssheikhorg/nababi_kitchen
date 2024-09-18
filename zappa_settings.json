@@ -1,0 +1,18 @@
+{
+    "production": {
+        "aws_region": "eu-west-2",
+        "django_settings": "restaurant.settings.production",
+        "slim_handler": true,
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "default",
+        "project_name": "nababi-kitchen",
+        "runtime": "python3.12",
+        "s3_bucket": "nababi-kitchen"
+    }
+}
