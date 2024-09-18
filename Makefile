@@ -1,17 +1,11 @@
-db-create:
-	docker run --name nababi-db \
-		-e POSTGRES_USER=admin \
-		-e POSTGRES_PASSWORD=N@babiKitchen \
-		-e POSTGRES_DB=nababikitchendb \
-		-p 5432:5432 \
-		-v db_data:/var/lib/postgresql/data \
-		-d postgres
+build:
+	docker build -t nababi_kitchen_image .
 
-db:
-	docker start nababi-db
+run:
+	docker run --name nababi_kitchen_container -itd -p 8000:8000 nababi_kitchen_image
 
 stop:
-	docker stop nababi-db
+	docker stop nababi_kitchen_container
 
 r:
 	python manage.py runserver
@@ -27,6 +21,9 @@ su:
 
 i:
 	pip install -U -r requirements.txt
+
+i-dev:
+	pip install -U -r requirements-dev.txt
 
 collect:
 	python manage.py collectstatic

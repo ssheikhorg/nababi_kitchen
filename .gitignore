@@ -1,7 +1,17 @@
+*.swp
+package-lock.json
+.pytest_cache
+.venv
+*.egg-info
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
 .idea
 .vscode
 .env
-media/media
+media
 staticfiles
 __pycache__
 db.sqlite3

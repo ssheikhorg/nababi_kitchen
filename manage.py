@@ -6,13 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+DJANGO_SETTINGS_MODULE = os.getenv('DJANGO_SETTINGS_MODULE')
+
 
 def main():
     """Run administrative tasks."""
-    if os.getenv('STAGE') == 'PRODUCTION':
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restaurant.settings.production')
-    else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restaurant.settings.local')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', DJANGO_SETTINGS_MODULE)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

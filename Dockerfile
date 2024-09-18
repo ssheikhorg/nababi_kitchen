@@ -14,6 +14,9 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Step 5: Copy project files to container
 COPY . /app/
 
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
 # Step 6: Expose the port Django will run on
 EXPOSE 8000
 
