@@ -4,21 +4,13 @@ FROM python:3.12.1-slim
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Step 3: Set the working directory
 WORKDIR /app
 
-# Step 4: Install dependencies
-COPY requirements.txt /app/
+COPY . .
 RUN pip install --upgrade pip && pip install -r requirements.txt
-
-# Step 5: Copy project files to container
-COPY . /app/
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
-# Step 6: Expose the port Django will run on
-EXPOSE 80
-
-# Step 7: Run migrations and start the Django development server
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:80"]
+EXPOSE 8000
+CMD ["uvicorn", "restaurant.asgi:application", "--host", "0.0.0.0", "--port", "8000"]
