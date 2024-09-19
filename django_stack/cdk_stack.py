@@ -19,20 +19,25 @@ class NababiRestaurantStack(Stack):
         name = "nababi-kitchen-restaurant"
         description = "Nababi Kitchen Restaurant Project"
 
-        handler = lambda_.DockerImageFunction(
-            self, f"{name}-lambda",
-            description=f"{description} Lambda Function",
-            code=lambda_.DockerImageCode.from_image_asset("."),
-            architecture=lambda_.Architecture.ARM_64,
-            timeout=Duration.seconds(60),
-            memory_size=1024,
+        lambda_layers = lambda_python.PythonLayerVersion(
+            self, f"{name}-layer",
+            entry="src/layer", compatible_runtimes=[lambda_.Runtime.PYTHON_3_12],
+            layer_version_name=f"{name}-layer",
+        )
+        handler = lambda_python.PythonFunction(
+            self, name,
+            function_name=name,
+            entry="src", index="restaurant/asgi.py",
+            handler="handler",
+            memory_size=512, timeout=Duration.minutes(1),
+            runtime=lambda_.Runtime.PYTHON_3_12,
+            layers=[lambda_layers],
         )
 
         # Create HTTP API Gateway (v2)
-        http_api=apigwv2.HttpApi(
-            self,
-            "NababiKitchenApi",
-            api_name="NababiKitchenApi",
+        http_api = apigwv2.HttpApi(
+            self, f"{name}-api",
+            api_name=f"{name}-api",
             description=f"{description} API Gateway",
         )
 

@@ -11,7 +11,10 @@ cdk.out
 .idea
 .vscode
 .env
-media
 staticfiles
 __pycache__
 db.sqlite3
+src/__pycache__
+src/.idea
+src/.vscode
+src/staticfiles

@@ -173,8 +173,8 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 /*** Footer Start ***/
 .footer {
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    bottom: auto;
     width: 100%;
     background-color: var(--bs-light);
     z-index: 10;
