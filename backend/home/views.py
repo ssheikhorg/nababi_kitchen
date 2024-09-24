@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 
 from .models import (
-    MenuCategory, FooterSettings, SpecialFacility, ContactInfo, SocialGalleryImage, MenuItem
+    MenuCategory, FooterSettings, SpecialFacility, ContactInfo, SocialGalleryImage, MenuItem, AboutUs
 )
 
 
@@ -37,6 +37,12 @@ class MenuView(TemplateView):
 
 class AboutUsView(TemplateView):
     template_name = 'home/about_page.html'
+
+    def get_context_data(self, **kwargs):
+        about_info = AboutUs.objects.first()
+        context = super().get_context_data(**kwargs)
+        context['about_content'] = about_info
+        return context
 
 
 class ContactView(TemplateView):

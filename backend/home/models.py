@@ -53,6 +53,9 @@ class SpecialFacility(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = 'Special Facilities'
+
 
 class ContactInfo(models.Model):
     address = models.CharField(max_length=255)
@@ -74,3 +77,26 @@ class SocialGalleryImage(models.Model):
         if self.image:
             resize_image(self.image, 100, 100)
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Social Gallery Images'
+
+
+class AboutUs(models.Model):
+    title = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='about_us')
+    description = models.TextField()
+
+    # Additional dynamic sections
+    feature_1 = models.CharField(max_length=255, blank=True, null=True)
+    feature_2 = models.CharField(max_length=255, blank=True, null=True)
+    feature_3 = models.CharField(max_length=255, blank=True, null=True)
+    feature_4 = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "About Us Content"
+        verbose_name_plural = "About Us Content"
+
+    def __str__(self):
+        return self.title
