@@ -14,7 +14,7 @@ r:
 	python manage.py runserver
 
 uvicorn:
-	uvicorn restaurant.asgi:application --port 9002 --reload
+	uvicorn restaurant.asgi:application --port 8000 --reload
 
 n:
 	python manage.py makemigrations
