@@ -7,10 +7,15 @@
                     <h1 class="text-primary">{{ footer_settings.site_name }}</h1>
                     <p class="lh-lg mb-4">{{ footer_settings.description }}</p>
                     <div class="footer-icon d-flex">
-                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="{{ footer_settings.facebook_url }}"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="{{ footer_settings.twitter_url }}"><i class="fab fa-twitter"></i></a>
-                        <a href="{{ footer_settings.instagram_url }}" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ footer_settings.linkedin_url }}" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle"
+                           href="{{ footer_settings.facebook_url }}"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle"
+                           href="{{ footer_settings.twitter_url }}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ footer_settings.instagram_url }}"
+                           class="btn btn-primary btn-sm-square me-2 rounded-circle"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="{{ footer_settings.linkedin_url }}"
+                           class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -19,7 +24,8 @@
                     <h4 class="mb-4">Special Facilities</h4>
                     <div class="d-flex flex-column align-items-start">
                         {% for facility in facilities %}
-                            <a class="text-body mb-3" href="#"><i class="fa fa-check text-primary me-2"></i>{{ facility.name }}</a>
+                            <a class="text-body mb-3" href="#"><i
+                                    class="fa fa-check text-primary me-2"></i>{{ facility.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -28,7 +34,13 @@
                 <div class="footer-item">
                     <h4 class="mb-4">Contact Us</h4>
                     <div class="d-flex flex-column align-items-start">
-                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i> {{ contact_info.address }}</p>
+                        <p>
+                            <i class="fa fa-map-marker-alt text-primary me-2"></i>
+                            <a href="https://maps.app.goo.gl/eH8SxfmTTiYGnVao9" target="_blank"
+                               style="text-decoration: none; color: inherit;">
+                                {{ contact_info.address }}
+                            </a>
+                        </p>
                         <p><i class="fa fa-phone-alt text-primary me-2"></i> {{ contact_info.phone }}</p>
                         <p><i class="fas fa-envelope text-primary me-2"></i> {{ contact_info.email }}</p>
                         <p><i class="fa fa-clock text-primary me-2"></i> {{ contact_info.service_hours }}</p>
@@ -41,7 +53,8 @@
                     <div class="row g-2">
                         {% for image in gallery_images %}
                             <div class="col-4">
-                                <img src="{{ image.image.url }}" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                <img src="{{ image.image.url }}"
+                                     class="img-fluid rounded-circle border border-primary p-2" alt="">
                             </div>
                         {% endfor %}
                     </div>
