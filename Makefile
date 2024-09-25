@@ -2,7 +2,7 @@ build:
 	docker build -t nababi_kitchen_image .
 
 run:
-	docker run --name nababi_kitchen_container -itd nababi_kitchen_image
+	docker run --name nababi_kitchen_container -itd -p 8000:8000 nababi_kitchen_image
 
 runecr:
 	docker run --name nababi_kitchen_container -itd -p 8000:8000 705538025739.dkr.ecr.eu-west-2.amazonaws.com/nababikitchen
